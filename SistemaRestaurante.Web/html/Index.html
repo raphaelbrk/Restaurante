@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="../css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/site.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <base href="/" />
+</head>
+<body ng-app="RestauranteModule" ng-controller="RestauranteController">
+    <div class="container-fluid">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo">Sistema de Restaurante v1.0</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#/Home"><i class="material-icons left">home</i>Home</a></li>
+                    <li><a href="#/Restaurante"><i class="material-icons right">restaurant_menu</i>Restaurantes</a></li>
+                    <li><a href="#/Pratos"><i class="material-icons right">room_service</i>Pratos</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="row">
+            <div class="col s12 m12 l6 centralizar" style="width: 100%;">
+                <div class="card-panel">
+                    <h4 class="header2">Restaurante</h4>
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="Nome" type="text" ng-model="rest.Nome">
+                                    <label for="first_name">Nome</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <button ng-click="obtenhaRestaurante();" class="btn black waves-effect waves-light left" type="submit" name="action">
+                                            <i class="material-icons right">search</i>
+                                            Pesquisar
+                                            <i class="mdi-content-send right"></i>
+                                        </button>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <button ng-click="cadastrarRestaurante();" class="btn grey waves-effect waves-light right" type="submit" name="action">
+                                            <i class="material-icons right">create</i>
+                                            Cadastrar
+                                            <i class="mdi-content-send right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <ul class="collection">
+                    <li class="collection-item avatar" ng-repeat="restaurante in Restaurantes">
+                        <i class="material-icons circle">restaurant</i>
+                        <span class="title">{{restaurante.Nome}}</span>
+                        <!--secondary-content-->
+                        <a class="btn-floating btn-large waves-effect waves-light blue-grey right"><i class="material-icons">edit</i></a>
+                        <a class="btn-floating btn-large waves-effect waves-light red right" onclick="excluirRestaurante('idInformacao');"><i class="material-icons">delete</i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ng-view></ng-view>
+    </div>
+    <script src="../js/jquery//jquery-3.3.1.min.js"></script>
+    <script src="../js/materialize/materialize.min.js"></script>
+    <script src="../js/angularjs/angular.min.js"></script>
+    <script src="../js/angularjs/angular-route.min.js"></script>
+    <script src="../js/angularjs/angular-mocks.js"></script>
+    <script src="../js/Site/Modulo/RestauranteModule.js"></script>
+    <script src="../js/Site/Controller/RestauranteController.js"></script>
+</body>
+</html>
